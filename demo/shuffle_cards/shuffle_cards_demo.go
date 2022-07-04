@@ -1,6 +1,6 @@
 /*
  * @Author: Jimpu
- * @Description: 洗牌
+ * @Description: 洗牌 demo
  */
 
 package shuffle_cards
@@ -13,8 +13,7 @@ import (
 
 // getRand 生成随机数
 func getRand() int {
-	min := 1
-	max := math.MaxInt
+	min, max := 1, math.MaxInt
 	rand.Seed(time.Now().UnixNano())
 	return rand.Intn(max-min) + min
 }

@@ -8,9 +8,11 @@ package main
 import (
 	"Demo1368/demo/josephus"
 	"Demo1368/demo/quick_sort"
+	"Demo1368/demo/redis"
 	"Demo1368/demo/shuffle_cards"
 	"fmt"
 	"log"
+	"time"
 )
 
 func main() {
@@ -24,7 +26,10 @@ func main() {
 	log.Println(fmt.Sprintf("洗牌: result=%s", shuffle_cards.ShuffleCards(srcData, len(srcData))))
 
 	// 3. 设计一个带失效时间的缓存数据结构，key和value都是string，并实现增删改查接口。
-	// 需要本地安装redis
+	key := "TestKey:"
+	cache := redis.NewCache(key, 10*time.Second)
+	cache.Set("hello cache!")
+	log.Println(fmt.Sprintf("cache: key: %v, result: %s", key, cache.Get()))
 
 	// 4. 约瑟夫环问题
 	n, m := 100, 3
