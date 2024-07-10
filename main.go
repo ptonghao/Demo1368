@@ -15,6 +15,22 @@ import (
 	"time"
 )
 
+var regionNames []string
+
+func GetSubSlice(str_data []string, length int) {
+	if len(str_data) == 0 {
+		return
+	}
+
+	if len(str_data) < length {
+		regionNames = str_data
+		return
+	}
+
+	regionNames = str_data[:length]
+	return
+}
+
 // main test
 func main() {
 	// 1、实现一个函数，输入为任意长度的int64数组，返回元素最大差值，例如输入arr=[5,8,10,1,3]，返回9。
